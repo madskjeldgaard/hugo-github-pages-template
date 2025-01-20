@@ -1,0 +1,9 @@
+<p>Copyright {{ now.Year }}. All rights reserved.</p>
+
+{{/* RSS */}}
+  {{ with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+
+  <a href="{{ .Permalink }}" target="_blank" rel="noopener">RSS</a>
+
+  {{ end -}}
